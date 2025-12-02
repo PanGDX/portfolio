@@ -1,0 +1,11 @@
+services:
+    backend:
+        build: .
+        container_name: pran-portfolio
+        restart: always
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/app
+            - /app/node_modules
+
