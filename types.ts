@@ -30,6 +30,7 @@ export enum SectionId {
   ABOUT = 'about',
   SKILLS = 'skills',
   WORK = 'work',
+  EDUCATION = 'education',
   PROJECTS = 'projects',
   BLOG = 'blog',
   CONTACT = 'contact',

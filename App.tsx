@@ -4,9 +4,10 @@ import Navbar from './components/Navbar';
 import SidebarDots from './components/SidebarDots';
 import Hero from './components/Hero';
 import About from './components/About';
+import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Work from './components/Work';
-import Projects from './components/Projects';
+import Education from './components/Education';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import MarkdownModal from './components/MarkdownModal';
@@ -57,9 +58,10 @@ function App() {
           <main>
             <Hero />
             <About />
+            <Projects onOpenProject={setOpenProject} />
             <Skills />
             <Work />
-            <Projects onOpenProject={setOpenProject} />
+            <Education />
             <Blog onOpenBlog={setOpenBlog} />
             <Contact />
           </main>

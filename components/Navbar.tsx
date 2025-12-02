@@ -7,11 +7,12 @@ interface NavbarProps {
 
 const navItems = [
   { id: SectionId.ABOUT, label: 'ABOUT', num: 0 },
-  { id: SectionId.SKILLS, label: 'SKILLS', num: 1 },
-  { id: SectionId.WORK, label: 'WORK', num: 2 },
-  { id: SectionId.PROJECTS, label: 'PROJECTS', num: 3 },
-  { id: SectionId.BLOG, label: 'BLOG', num: 4 },
-  { id: SectionId.CONTACT, label: 'CONTACT', num: 5 },
+  { id: SectionId.PROJECTS, label: 'PROJECTS', num: 1 },
+  { id: SectionId.SKILLS, label: 'SKILLS', num: 2 },
+  { id: SectionId.WORK, label: 'WORK', num: 3 },
+  { id: SectionId.EDUCATION, label: 'EDUCATION', num: 4 },
+  { id: SectionId.BLOG, label: 'BLOG', num: 5 },
+  { id: SectionId.CONTACT, label: 'CONTACT', num: 6 },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
@@ -46,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </button>
           ))}
           <button className="text-xs md:text-sm text-gray-400 hover:text-white pointer-events-auto">
-            <span className="text-green-600 mr-1">6.</span>RESUME
+            <span className="text-green-600 mr-1">7.</span>RESUME
           </button>
         </div>
 
@@ -81,7 +82,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </button>
           ))}
           <button className="text-2xl text-gray-300">
-             <span className="text-neon mr-2 font-mono text-base">6.</span>RESUME
+             <span className="text-neon mr-2 font-mono text-base">7.</span>RESUME
           </button>
         </div>
       </div>
