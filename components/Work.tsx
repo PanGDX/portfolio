@@ -3,15 +3,15 @@ import SectionWrapper from './SectionWrapper';
 import { SectionId } from '../types';
 
 const experiences = [
-    { title: 'Freelancer', company: '', year: '2018', active: false },
-    { title: 'pianobit s.r.l', company: '', year: '', active: false },
-    { title: 'Way AS', company: '', year: '', active: false },
-    { title: 'ContinuumLab', company: '', year: '2025', active: true },
+    { title: 'ETDA Thailand', company: '', year: '2018', active: false },
+    { title: 'Lotus\'s Thailand', company: '', year: '', active: false },
+    { title: 'Freelancer', company: '', year: '', active: false },
+    { title: 'Maker\'s Studio NuS', company: '', year: '2025', active: true },
 ];
 
 const Work: React.FC = () => {
   return (
-    <SectionWrapper id={SectionId.WORK} title="WORK AND EDUCATION">
+    <SectionWrapper id={SectionId.WORK} title="WORK">
       <div className="mb-16 text-gray-300 text-lg max-w-3xl">
         <p>
             I had the opportunity to work for many companies with many different technologies,

@@ -89,13 +89,13 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right 3D Image */}
-          <div className="hidden md:flex flex-1 justify-center items-center perspective-container">
-               <Canvas>
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} />
-                <RobotModel />
-              </Canvas>
-          </div>
+          <div className="hidden md:flex flex-1 justify-center items-center perspective-container h-[600px] w-full">
+            <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <pointLight position={[10, 10, 10]} />
+              <RobotModel />
+            </Canvas>
+        </div>
 
       </div>
     </section>

@@ -12,7 +12,7 @@ const RobotModel = () => {
     }
   });
 
-  return <primitive ref={modelRef} object={scene} scale={2} position={[0, -1.5, 0]} />;
+  return <primitive ref={modelRef} object={scene} scale={2.3} position={[0, -1.5, 0]} />;
 };
 
 export default RobotModel;
