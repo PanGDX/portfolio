@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SectionId } from '../types';
+import { Canvas } from '@react-three/fiber';
+import RobotModel from './RobotModel';
 
 const Hero: React.FC = () => {
   const [text, setText] = useState('');
@@ -88,14 +90,11 @@ const Hero: React.FC = () => {
 
           {/* Right 3D Image */}
           <div className="hidden md:flex flex-1 justify-center items-center perspective-container">
-               {/* Using a high quality 3D-like emoji from a CDN for the 'rotating 3d image' requirement */}
-               <div className="relative w-80 h-80 animate-spin-slow-y preserve-3d">
-                  <img 
-                    src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Floppy%20Disk.png" 
-                    alt="3D Floating Object" 
-                    className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(74,222,128,0.4)]"
-                  />
-               </div>
+               <Canvas>
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} />
+                <RobotModel />
+              </Canvas>
           </div>
 
       </div>
