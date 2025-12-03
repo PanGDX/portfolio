@@ -1,28 +1,32 @@
 import React from "react";
 import SectionWrapper  from "./SectionWrapper";
+import { SectionId } from "../types";
 
 const Education = () => {
   return (
-    <SectionWrapper id="education" title="EDUCATION">
-      <div className="flex flex-col md:flex-row gap-16">
-        <div className="flex-1">
+    <SectionWrapper id={SectionId.EDUCATION} title="EDUCATION">
+      <div className="flex flex-col gap-16 text-gray-300 text-lg">
+        <div>
           <div className="flex items-center gap-4 mb-4">
             <img
-              src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Nus_logo.svg/320px-Nus_logo.svg.png"
+              src="src/nus.png"
               alt="NUS Logo"
-              className="w-12 h-12 object-contain"
+              className="w-16 h-16 object-contain"
             />
-            <h2 className="text-4xl font-bold text-white">NUS Modules</h2>
+            <h2 className="text-3xl font-bold text-white">National University of Singapore</h2>
           </div>
+          <p className="mb-4 font-bold">Bachelor of Engineering in Computer Engineering</p>
+          <p className="text-gray-400 mb-6">August 2024 - May 2028</p>
           <ul className="list-disc ml-8 text-secondary">
-            <li>CS2040C</li>
+            <li>CS2040C - Data Structures and Algorithms (A)</li>
+            <li>EE2026 - Digital Design, Logic and FPGA</li>
           </ul>
         </div>
-        <div className="flex-1">
+        <div>
           <div className="flex items-center gap-4 mb-4">
             <svg
-              width="48"
-              height="48"
+              width="64"
+              height="64"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +47,7 @@ const Education = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <h2 className="text-4xl font-bold text-white">Official Certificates</h2>
+            <h2 className="text-3xl font-bold text-white">Certifications</h2>
           </div>
           <ul className="list-disc ml-8 text-secondary">
             <li>AWS Cloud</li>

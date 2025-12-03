@@ -12,7 +12,7 @@ const navItems = [
   { id: SectionId.WORK, label: 'WORK', num: 3 },
   { id: SectionId.EDUCATION, label: 'EDUCATION', num: 4 },
   { id: SectionId.BLOG, label: 'BLOG', num: 5 },
-  { id: SectionId.CONTACT, label: 'CONTACT', num: 6 },
+  { id: SectionId.CONTACT, label: 'CONTACT/RESUME', num: 6 },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     <>
       <nav className="fixed top-0 left-0 w-full p-6 md:p-8 flex justify-between items-start z-40 pointer-events-none bg-gradient-to-b from-[#050505] to-transparent">
         <div className="text-xs md:text-sm text-gray-400 pointer-events-auto select-none">
-          DRAG ANYWHERE
+          Good things take time...
         </div>
         
         <div className="hidden md:flex gap-6 pointer-events-auto">
@@ -46,9 +46,6 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               {item.label}
             </button>
           ))}
-          <button className="text-xs md:text-sm text-gray-400 hover:text-white pointer-events-auto">
-            <span className="text-green-600 mr-1">7.</span>RESUME
-          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -81,9 +78,6 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               {item.label}
             </button>
           ))}
-          <button className="text-2xl text-gray-300">
-             <span className="text-neon mr-2 font-mono text-base">7.</span>RESUME
-          </button>
         </div>
       </div>
     </>

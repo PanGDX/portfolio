@@ -28,10 +28,10 @@ export interface BlogPost {
 export enum SectionId {
   HERO = 'hero',
   ABOUT = 'about',
+  PROJECTS = 'projects',
   SKILLS = 'skills',
   WORK = 'work',
   EDUCATION = 'education',
-  PROJECTS = 'projects',
   BLOG = 'blog',
   CONTACT = 'contact',
 }

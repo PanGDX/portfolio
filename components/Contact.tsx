@@ -4,29 +4,35 @@ import { SectionId } from '../types';
 
 const Contact: React.FC = () => {
   return (
-    <SectionWrapper id={SectionId.CONTACT} title="CONTACT">
+
+
+    
+    <SectionWrapper id={SectionId.CONTACT} title="CONTACT AND RESUME">
       <div className="flex flex-col md:flex-row gap-16 md:gap-32">
         {/* Left Info */}
-        <div className="md:w-1/3 space-y-8">
+        <div className="md:w-1/1 space-y-8">
             <div>
-                <h3 className="text-3xl font-bold text-green-400 mb-2">Have a project in mind?</h3>
-                <p className="text-gray-400">My inbox is always open for new opportunities.</p>
+                <h3 className="text-3xl font-bold text-green-400 mb-2">Want to Connect?</h3>
+                <p className="text-gray-400">My inbox is always open for new opportunities and connections!</p>
             </div>
             
             <div className="space-y-4">
-                <a href="#" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
-                    <i className="fab fa-github text-2xl w-8 text-center"></i> Myphz
+                <a href="https://github.com/PanGDX" target="_blank" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
+                    <i className="fab fa-github text-2xl w-8 text-center"></i> PanGDX
                 </a>
-                <a href="mailto:danielscanu45@outlook.it" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
-                    <i className="fas fa-envelope text-2xl w-8 text-center"></i> danielscanu45@outlook.it
+                <a href="mailto:prantan1@outlook.com" target="_blank" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
+                    <i className="fas fa-envelope text-2xl w-8 text-center"></i> prantan1@outlook.com
                 </a>
-                <a href="#" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
-                    <i className="fab fa-linkedin text-2xl w-8 text-center"></i> Daniel Scanu
+                <a href="https://www.linkedin.com/in/pran-tanprasertkul/" target="_blank" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
+                    <i className="fab fa-linkedin text-2xl w-8 text-center"></i> Pran Tanprasertkul
+                </a>
+                <a href="/src/resume.pdf" target="_blank" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
+                    <i className="fas fa-file-pdf text-2xl w-8 text-center"></i> Resume
                 </a>
             </div>
         </div>
 
-        {/* Right Form */}
+        {/* Right Form
         <div className="md:w-2/3 max-w-lg">
             <form className="space-y-6">
                 <div className="space-y-2">
@@ -63,7 +69,7 @@ const Contact: React.FC = () => {
                     Submit
                 </button>
             </form>
-        </div>
+        </div> */}
       </div>
     </SectionWrapper>
   );

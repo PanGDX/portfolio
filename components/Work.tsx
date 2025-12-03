@@ -3,7 +3,7 @@ import SectionWrapper from './SectionWrapper';
 import { SectionId } from '../types';
 
 const experiences = [
-    { title: 'ETDA Thailand', company: '', year: '2018', active: false },
+    { title: 'ETDA Thailand', company: '', year: '2024', active: false },
     { title: 'Lotus\'s Thailand', company: '', year: '', active: false },
     { title: 'Freelancer', company: '', year: '', active: false },
     { title: 'Maker\'s Studio NuS', company: '', year: '2025', active: true },
@@ -28,7 +28,7 @@ const Work: React.FC = () => {
            <div className="absolute left-4 top-0 bottom-0 w-1 bg-neon/50 md:hidden"></div>
 
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 md:gap-0 relative">
-             <span className="hidden md:block text-yellow-200 text-xl font-mono">2018</span>
+             <span className="hidden md:block text-yellow-200 text-xl font-mono">2024</span>
              
              {experiences.map((exp, idx) => (
                  <div key={idx} className="relative flex md:flex-col items-center group md:transform md:-translate-y-1/2 md:top-1/2">
