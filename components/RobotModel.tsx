@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 const RobotModel = () => {
-  const { scene } = useGLTF('/cool-robot.glb');
+  const { scene } = useGLTF('/public/assets/cool-robot.glb');
   const modelRef = useRef();
 
   useFrame(() => {

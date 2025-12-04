@@ -1,65 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+// @ts-ignore
+import matter from 'gray-matter';
 import SectionWrapper from './SectionWrapper';
 import { SectionId, BlogPost } from '../types';
-import { blogPostsContent } from '../data/content';
-
-const posts: BlogPost[] = [
-  {
-    id: 1,
-    title: 'Switching to Arch Linux: A Survival Guide',
-    date: 'Oct 12, 2024',
-    excerpt: 'Why I made the switch, the challenges I faced with Nvidia drivers, and why I can\'t go back to Windows.',
-    category: 'Linux',
-    content: blogPostsContent[1]
-  },
-  {
-    id: 2,
-    title: 'My Journey into Rust Programming',
-    date: 'Sep 28, 2024',
-    excerpt: 'The borrow checker was my enemy, now it is my best friend. How learning Rust changed the way I write code.',
-    category: 'Coding',
-    content: blogPostsContent[2]
-  },
-  {
-    id: 3,
-    title: 'Hiking the Dolomites: Disconnecting to Reconnect',
-    date: 'Aug 15, 2024',
-    excerpt: 'Sometimes the best way to solve a bug is to touch grass. Sharing my photos from last summer.',
-    category: 'Personal',
-    content: blogPostsContent[3]
-  },
-  {
-    id: 4,
-    title: 'Understanding React Server Components',
-    date: 'Jul 20, 2024',
-    excerpt: 'A deep dive into the new architecture and how it changes the way we build web apps.',
-    category: 'React',
-    content: blogPostsContent[4] || ''
-  },
-  {
-    id: 5,
-    title: 'Vim vs Nano: The Eternal War',
-    date: 'Jun 10, 2024',
-    excerpt: 'Why I choose Vim every time (and how to exit it).',
-    category: 'Tools',
-    content: blogPostsContent[5] || ''
-  },
-  {
-    id: 6,
-    title: 'Why I love TypeScript',
-    date: 'May 05, 2024',
-    excerpt: 'Types can be annoying, but they save you from yourself.',
-    category: 'Coding',
-    content: blogPostsContent[6] || ''
-  }
-];
 
 interface BlogProps {
   onOpenBlog: (post: BlogPost) => void;
 }
 
 const Blog: React.FC<BlogProps> = ({ onOpenBlog }) => {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const postModules = import.meta.glob('../src/blog/*.md', { as: 'raw' });
+
+      let loadedPosts = await Promise.all(
+        Object.values(postModules).map(async (loader) => {
+          const rawContent = await loader();
+          const { data, content } = matter(rawContent);
+
+          return {
+            id: data.id,
+            title: data.title,
+            date: data.date,
+            excerpt: data.excerpt,
+            category: data.category,
+            content: content,
+          } as BlogPost;
+        })
+      );
+
+      // Sort posts by id in descending order
+      loadedPosts.sort((a, b) => b.id - a.id);
+
+      setPosts(loadedPosts);
+    };
+
+    fetchPosts();
+  }, []);
 
   const visiblePosts = showAll ? posts : posts.slice(0, 3);
 

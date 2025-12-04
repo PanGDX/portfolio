@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
                 <a href="https://www.linkedin.com/in/pran-tanprasertkul/" target="_blank" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
                     <i className="fab fa-linkedin text-2xl w-8 text-center"></i> Pran Tanprasertkul
                 </a>
-                <a href="/src/resume.pdf" target="_blank" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
+                <a href="/public/assets/resume.pdf" target="_blank" className="flex items-center gap-4 text-xl text-gray-300 hover:text-white transition-colors">
                     <i className="fas fa-file-pdf text-2xl w-8 text-center"></i> Resume
                 </a>
             </div>

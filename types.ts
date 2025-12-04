@@ -1,9 +1,10 @@
 export interface Project {
-  id: number;
+  id: string;
   title: string;
   description: string;
   image: string;
   tags: string[];
+  date?: string; // Add optional date property
   link?: string;
   content: string; // Markdown content
 }
@@ -34,4 +35,24 @@ export enum SectionId {
   EDUCATION = 'education',
   BLOG = 'blog',
   CONTACT = 'contact',
+}
+
+
+
+export interface FrontMatter {
+  title: string;
+  date: string;
+  author: string;
+  image: string;
+  categories: string[];
+  slug: string;
+}
+
+export interface BlogPostData {
+  attributes: FrontMatter;
+  body: string;
+}
+
+export interface ParsedPost extends FrontMatter {
+  content: string;
 }
