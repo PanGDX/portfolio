@@ -56,3 +56,25 @@ export interface BlogPostData {
 export interface ParsedPost extends FrontMatter {
   content: string;
 }
+
+
+export interface ArticleMetadata {
+  slug: string;
+  title: string;
+  date: string;
+  author: string;
+  excerpt: string;
+  tags: string[];
+  coverImage?: string;
+  readTime?: string;
+}
+
+export interface Article {
+  metadata: ArticleMetadata;
+  content: string;
+}
+
+export interface ParsedMarkdown {
+  metadata: Record<string, any>;
+  content: string;
+}
