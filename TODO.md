@@ -1,1 +1,0 @@
-Complete the blog and the portfolio
