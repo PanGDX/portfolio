@@ -1,12 +1,12 @@
 import React from 'react';
-import SectionWrapper from './SectionWrapper';
-import { SectionId } from '../types';
+import SectionWrapper from '../SectionWrapper';
+import { SectionId } from '../../types';
 
 const experiences = [
     { title: 'ETDA Thailand', company: '', year: '2024', active: false },
     { title: 'Lotus\'s Thailand', company: '', year: '', active: false },
     { title: 'Freelancer', company: '', year: '', active: false },
-    { title: 'Maker\'s Studio NuS', company: '', year: '2025', active: true },
+    { title: 'Maker\'s Studio NuS', company: '', year: '2025', active: false },
 ];
 
 const Work: React.FC = () => {
@@ -39,7 +39,7 @@ const Work: React.FC = () => {
                       
                       {/* Content */}
                       <div className="ml-6 md:ml-0 text-left md:text-center pt-8 md:pt-0">
-                          <h3 className={`text-2xl md:text-3xl font-bold ${idx === 3 ? 'text-white' : 'text-yellow-100'} mb-1`}>{exp.title}</h3>
+                          <h3 className={`text-2xl md:text-3xl font-bold text-yellow-100 mb-1`}>{exp.title}</h3>
                           {exp.company && <p className="text-gray-400">{exp.company}</p>}
                       </div>
                  </div>

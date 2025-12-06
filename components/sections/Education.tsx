@@ -1,6 +1,6 @@
 import React from "react";
-import SectionWrapper  from "./SectionWrapper";
-import { SectionId } from "../types";
+import SectionWrapper from '../SectionWrapper';
+import { SectionId } from '../../types';
 
 const Education = () => {
   return (

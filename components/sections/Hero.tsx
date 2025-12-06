@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { SectionId } from '../types';
+import { SectionId } from '../../types';
 import { Canvas } from '@react-three/fiber';
-import RobotModel from './RobotModel';
+import RobotModel from '../RobotModel';
 
 const Hero: React.FC = () => {
   const [text, setText] = useState('');
