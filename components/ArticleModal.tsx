@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Calendar, Clock, User, X } from 'lucide-react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// Use the ESM import for the style to ensure it bundles correctly
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import { Calendar, X } from 'lucide-react';
 import { articleService } from '../services/articleService';
 import { Article } from '../types';
 import { formatDate } from '../utils/frontmatter';
@@ -18,7 +22,6 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
   useEffect(() => {
     if (slug) {
       setLoading(true);
-      // Simulate network delay for effect
       setTimeout(() => {
         const foundArticle = articleService.getArticleBySlug(slug);
         setArticle(foundArticle);
@@ -29,7 +32,6 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
     }
   }, [slug]);
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (slug) {
       document.body.style.overflow = 'hidden';
@@ -51,9 +53,9 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
       />
 
       <div className="relative bg-gray-900 w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-fade-in-up">
-        {/* Sticky Header inside Modal */}
+        {/* Sticky Header */}
         <div className="sticky top-0 z-10 flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-700">
-          <span className="text-sm font-semibold text-gray-400">
+          <span className="text-sm font-semibold text-gray-400 truncate max-w-[80%]">
             {loading ? 'Loading...' : article?.metadata.title}
           </span>
           <button
@@ -65,7 +67,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-1 p-6 sm:p-10">
+        <div className="overflow-y-auto flex-1 p-6 sm:p-10 custom-scrollbar">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-20">
               <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-yellow-500 mb-4"></div>
@@ -104,8 +106,93 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
                 </div>
               )}
 
-              <div className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-yellow-400 hover:prose-a:text-yellow-300 prose-img:rounded-xl">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {/* 
+                 Prose Classes Explained:
+                 - prose-invert: Dark mode typography.
+                 - prose-code:before:content-none: Removes the default backticks added by Tailwind Typography.
+                 - prose-pre:bg-transparent: Prevents double-background on code blocks (since SyntaxHighlighter adds its own).
+              */}
+              <div className="prose prose-invert prose-lg max-w-none 
+                prose-headings:font-bold prose-headings:tracking-tight 
+                prose-a:text-yellow-400 hover:prose-a:text-yellow-300 
+                prose-img:rounded-xl prose-hr:border-gray-700
+                prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-transparent prose-pre:p-0">
+                
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    // Code Block Handling
+                    code({ node, inline, className, children, ...props }: any) {
+                      const match = /language-(\w+)/.exec(className || '');
+                      const isInline = !match && !String(children).includes('\n');
+
+                      if (!isInline && match) {
+                        return (
+                          <div className="rounded-lg overflow-hidden my-6 border border-gray-700 shadow-lg">
+                            {/* Optional: Language Label */}
+                            <div className="bg-[#1e1e1e] px-4 py-2 text-xs text-gray-500 border-b border-gray-800 font-mono text-right uppercase">
+                              {match[1]}
+                            </div>
+                            <SyntaxHighlighter
+                              style={vscDarkPlus}
+                              language={match[1]}
+                              PreTag="div"
+                              customStyle={{ margin: 0, borderRadius: 0 }}
+                              {...props}
+                            >
+                              {String(children).replace(/\n$/, '')}
+                            </SyntaxHighlighter>
+                          </div>
+                        );
+                      }
+
+                      // Fallback for inline code or code blocks without language
+                      // We force a visible style here to fix "not displayed" issues
+                      return (
+                        <code 
+                          className={`${
+                            isInline 
+                              ? "bg-gray-800 text-yellow-200 px-1.5 py-0.5 rounded font-mono text-sm" 
+                              : "block bg-gray-800 text-gray-200 p-4 rounded-lg overflow-x-auto border border-gray-700 my-4"
+                          }`}
+                          {...props}
+                        >
+                          {children}
+                        </code>
+                      );
+                    },
+                    
+                    // Table Handling (Preserved from previous step)
+                    table: ({ children }) => (
+                      <div className="overflow-x-auto my-8 border border-gray-700 rounded-lg">
+                        <table className="w-full text-left border-collapse text-sm">
+                          {children}
+                        </table>
+                      </div>
+                    ),
+                    thead: ({ children }) => (
+                      <thead className="bg-gray-800 text-gray-200">
+                        {children}
+                      </thead>
+                    ),
+                    th: ({ children }) => (
+                      <th className="px-6 py-3 font-semibold border-b border-gray-700 whitespace-nowrap">
+                        {children}
+                      </th>
+                    ),
+                    td: ({ children }) => (
+                      <td className="px-6 py-4 border-b border-gray-700 text-gray-300">
+                        {children}
+                      </td>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-4 border-yellow-500 pl-4 italic text-gray-400 my-6">
+                        {children}
+                      </blockquote>
+                    )
+                  }}
+                >
                   {article.content}
                 </ReactMarkdown>
               </div>

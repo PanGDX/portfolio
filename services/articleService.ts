@@ -1,7 +1,7 @@
 import { RAW_ARTICLES } from '../data/articles';
 import { Article, ArticleMetadata } from '../types';
 import { parseFrontmatter } from '../utils/frontmatter';
-
+console.log(RAW_ARTICLES);
 export const articleService = {
   getAllArticles: (): ArticleMetadata[] => {
     return RAW_ARTICLES.map(raw => {
