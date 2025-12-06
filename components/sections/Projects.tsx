@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
 
   useEffect(() => {
     // Simulate fetching data
-    const data = articleService.getAllArticles();
+    const data = articleService.getAllArticles().filter(article => article.type === 'project');
     setArticles(data);
   }, []);
 

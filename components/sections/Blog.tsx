@@ -11,7 +11,7 @@ const Blog: React.FC = () => {
 
   useEffect(() => {
     // Simulate fetching data
-    const data = articleService.getAllArticles();
+    const data = articleService.getAllArticles().filter(article => article.type === 'blog');
     setArticles(data);
   }, []);
 

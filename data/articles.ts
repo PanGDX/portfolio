@@ -3,10 +3,9 @@ export const RAW_ARTICLES = [
 slug: "the-future-of-react"
 title: "The Future of React: Server Components"
 date: "2023-10-24"
-author: "Sarah Jenkins"
 excerpt: "React Server Components are changing how we think about the boundary between client and server. Let's dive deep into what this means for performance."
-readTime: "5 min read"
 tags: ["React", "Performance", "Web Dev"]
+type: "blog"
 coverImage: "https://picsum.photos/800/400?random=1"
 ---
 
@@ -49,10 +48,9 @@ The future looks bright for React developers!
 slug: "mastering-tailwind-css"
 title: "Mastering Tailwind CSS for Scalable Design"
 date: "2023-11-15"
-author: "David Chen"
 excerpt: "Utility-first CSS might seem chaotic at first, but with the right patterns, it becomes a superpower for rapid UI development."
-readTime: "8 min read"
 tags: ["CSS", "Tailwind", "Design"]
+type: "blog"
 coverImage: "https://picsum.photos/800/400?random=2"
 ---
 
@@ -93,10 +91,9 @@ It's truly a game changer for modern web development.
 slug: "typescript-best-practices"
 title: "TypeScript Best Practices for 2024"
 date: "2023-12-01"
-author: "Alex Rivera"
 excerpt: "Stop using 'any' and start leveraging the full power of the type system. Here are 5 tips to write better TypeScript code."
-readTime: "6 min read"
 tags: ["TypeScript", "Coding", "Guide"]
+type: "project"
 coverImage: "https://picsum.photos/800/400?random=3"
 ---
 

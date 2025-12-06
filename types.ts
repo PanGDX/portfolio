@@ -65,6 +65,7 @@ export interface ArticleMetadata {
   author: string;
   excerpt: string;
   tags: string[];
+  type: 'project' | 'blog';
   coverImage?: string;
   readTime?: string;
 }
