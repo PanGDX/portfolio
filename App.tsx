@@ -4,13 +4,13 @@ import Navbar from './components/Navbar';
 import SidebarDots from './components/SidebarDots';
 import Hero from './components/Hero';
 import About from './components/About';
-import Projects from './components/Projects';
+// import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Work from './components/Work';
 import Education from './components/Education';
-import Blog from './components/Blog';
+// import Blog from './components/Blog';
 import Contact from './components/Contact';
-import MarkdownModal from './components/MarkdownModal';
+// import MarkdownModal from './components/MarkdownModal';
 import { SectionId, BlogPost, Project } from './types';
 
 function App() {
@@ -58,11 +58,11 @@ function App() {
           <main>
             <Hero />
             <About />
-            <Projects onOpenProject={setOpenProject} />
+            {/* <Projects onOpenProject={setOpenProject} /> */}
             <Skills />
             <Work />
             <Education />
-            <Blog onOpenBlog={setOpenBlog} />
+            {/* <Blog onOpenBlog={setOpenBlog} /> */}
             <Contact />
           </main>
           
@@ -70,22 +70,6 @@ function App() {
              <p>Designed & Built by Pran &copy; {new Date().getFullYear()}</p>
           </footer>
 
-          {/* Modals */}
-          <MarkdownModal 
-            isOpen={!!openProject}
-            onClose={() => setOpenProject(null)}
-            title={openProject?.title || ''}
-            content={openProject?.content || ''}
-            category="Project"
-          />
-          
-          <MarkdownModal 
-            isOpen={!!openBlog}
-            onClose={() => setOpenBlog(null)}
-            title={openBlog?.title || ''}
-            content={openBlog?.content || ''}
-            category={openBlog?.category}
-          />
 
         </div>
       )}
