@@ -1,0 +1,42 @@
+name: Deploy Vite App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Make sure this matches your branch name
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build with Docker
+        run: |
+          # 1. Build the image using your Dockerfile
+          docker build -t vite-builder .
+
+          # 2. Run the container to compile the app
+          # We mount the current directory ($PWD) to /app inside the container.
+          # We run 'npm run build' instead of 'npm run dev'.
+          # This generates the 'dist' folder in your workspace.
+          docker run --rm -v $PWD:/app -w /app vite-builder npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Vite outputs to 'dist' by default
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
