@@ -9,7 +9,7 @@ const Education = () => {
         <div>
           <div className="flex items-center gap-4 mb-4">
             <img
-              src="public/assets/nus.png"
+              src="/assets/nus.png"
               alt="NUS Logo"
               className="w-16 h-16 object-contain"
             />
@@ -25,7 +25,7 @@ const Education = () => {
         <div>
           <div className="flex items-center gap-4 mb-4">
             <img
-              src="public/assets/certificate.svg"
+              src="/assets/certificate.svg"
               alt="NUS Logo"
               className="w-16 h-16 object-contain"
             />
