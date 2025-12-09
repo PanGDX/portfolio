@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-// Use the ESM import for the style to ensure it bundles correctly
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
 import { Calendar, X } from 'lucide-react';
 import { articleService } from '../services/articleService';
 import { Article } from '../types';
@@ -53,7 +51,6 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
       />
 
       <div className="relative bg-gray-900 w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-fade-in-up">
-        {/* Sticky Header */}
         <div className="sticky top-0 z-10 flex justify-between items-center px-6 py-4 bg-gray-900/80 backdrop-blur-md border-b border-gray-700">
           <span className="text-sm font-semibold text-gray-400 truncate max-w-[80%]">
             {loading ? 'Loading...' : article?.metadata.title}
@@ -106,12 +103,6 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
                 </div>
               )}
 
-              {/* 
-                 Prose Classes Explained:
-                 - prose-invert: Dark mode typography.
-                 - prose-code:before:content-none: Removes the default backticks added by Tailwind Typography.
-                 - prose-pre:bg-transparent: Prevents double-background on code blocks (since SyntaxHighlighter adds its own).
-              */}
               <div className="prose prose-invert prose-lg max-w-none 
                 prose-headings:font-bold prose-headings:tracking-tight 
                 prose-a:text-yellow-400 hover:prose-a:text-yellow-300 
@@ -122,6 +113,37 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
                 <ReactMarkdown 
                   remarkPlugins={[remarkGfm]}
                   components={{
+                    // --- UPDATED IMAGE & VIDEO RENDERER ---
+                    img: ({ node, ...props }) => {
+                      // 1. Fix the path (Strip /public)
+                      const cleanSrc = props.src?.replace('/public', '');
+
+                      // 2. Check if the file extension is .mp4 (case insensitive)
+                      const isVideo = cleanSrc?.toLowerCase().endsWith('.mp4');
+
+                      if (isVideo) {
+                        return (
+                          <video
+                            controls
+                            className="w-full rounded-xl shadow-lg my-8 border border-gray-700"
+                            preload="metadata"
+                          >
+                            <source src={cleanSrc} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        );
+                      }
+
+                      // 3. Fallback: Render as a normal Image
+                      return (
+                        <img 
+                          {...props} 
+                          src={cleanSrc} 
+                          className="rounded-xl shadow-lg my-8 mx-auto"
+                        />
+                      );
+                    },
+
                     // Code Block Handling
                     code({ node, inline, className, children, ...props }: any) {
                       const match = /language-(\w+)/.exec(className || '');
@@ -130,7 +152,6 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
                       if (!isInline && match) {
                         return (
                           <div className="rounded-lg overflow-hidden my-6 border border-gray-700 shadow-lg">
-                            {/* Optional: Language Label */}
                             <div className="bg-[#1e1e1e] px-4 py-2 text-xs text-gray-500 border-b border-gray-800 font-mono text-right uppercase">
                               {match[1]}
                             </div>
@@ -147,8 +168,6 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
                         );
                       }
 
-                      // Fallback for inline code or code blocks without language
-                      // We force a visible style here to fix "not displayed" issues
                       return (
                         <code 
                           className={`${
@@ -163,7 +182,6 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ slug, onClose }) => 
                       );
                     },
                     
-                    // Table Handling (Preserved from previous step)
                     table: ({ children }) => (
                       <div className="overflow-x-auto my-8 border border-gray-700 rounded-lg">
                         <table className="w-full text-left border-collapse text-sm">

@@ -18,6 +18,7 @@ const Education = () => {
           <p className="mb-4 font-bold">Bachelor of Engineering in Computer Engineering</p>
           <p className="text-gray-400 mb-6">August 2024 - May 2028</p>
           <ul className="list-disc ml-8 text-secondary">
+            <li>CS1231 - Discrete Structures (A)</li>
             <li>CS2040C - Data Structures and Algorithms (A)</li>
             <li>EE2026 - Digital Design, Logic and FPGA</li>
           </ul>
@@ -32,7 +33,7 @@ const Education = () => {
             <h2 className="text-3xl font-bold text-white">Certifications</h2>
           </div>
           <ul className="list-disc ml-8 text-secondary">
-            <li>AWS Cloud</li>
+            
           </ul>
         </div>
       </div>
