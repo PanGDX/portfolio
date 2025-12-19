@@ -55,7 +55,7 @@ To solve this, I utilized **Quantization** via `llama-cpp-python` and the **GGUF
 *   I enabled GPU offloading (`CMAKE_ARGS="-DLLAMA_CUDA=on"`) to ensure the matrix multiplications happened on the GPU rather than the CPU, keeping inference times down to a few seconds.
 
 #### 4. The Application Layer
-For the user interface and deployment, I moved away from basic terminal scripts to a full-stack approach:
+For the user interface and deployment of the MVP, I moved away from basic terminal scripts to a full-stack approach:
 *   **Backend:** I used **FastAPI** to serve the model as an API.
 *   **Frontend:** I deployed the chat interface using **Chainlit**. Chainlit provided an out-of-the-box ChatGPT-like UI that supported "Thought Process" toggling, allowing stakeholders to see exactly which source documents the RAG system retrieved before answering.
 *   **Tunneling:** To demo the application live from the Google Colab environment to stakeholders, I used **ngrok** to create a secure tunnel to the localhost port.
