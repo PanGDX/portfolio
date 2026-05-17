@@ -49,7 +49,7 @@ export default function App() {
         <div className="mb-12 hidden lg:block">
           <div className="h-40 w-40 overflow-hidden rounded-full border-8 border-slate-800">
             <img
-              src="/pran_photo.jpg"
+              src="/pran_profile.jpg"
               alt="Profile Photo"
               className="h-full w-full object-cover"
             />
@@ -187,6 +187,27 @@ export default function App() {
                 microcontroller to relay modules to seamlessly actuate the
                 locker's electronic snap locks.
               </ul>
+              <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+                <img
+                  src="/printing-bambu.jpg"
+                  alt="Polyformer Prototype"
+                  className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                />
+                <img
+                  src="/3dprints.jpg"
+                  alt="Polyformer Prototype"
+                  className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                />
+                <video
+                  muted
+                  controls
+                  className="h-auto w-full max-h-80 rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  poster="/polyformer-video-thumbnail.jpg"
+                >
+                  <source src="/robotarm.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
             <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
               Aug 2025 - Present
@@ -411,7 +432,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 6. Projects and Coursework Section (Partial replace starting at Freelance) */}
+        {/* 6. Projects and Coursework Section */}
         <section id="projects" className="flex flex-col justify-center py-20">
           <h2 className="mb-12 font-heading text-5xl font-bold uppercase tracking-tight text-slate-900">
             Projects & Coursework
@@ -422,7 +443,8 @@ export default function App() {
               Freelance & Personal
             </h3>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* Sunnymind */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   Sunnymind
@@ -440,13 +462,24 @@ export default function App() {
                   Typescript, React Native/Expo, PostgreSQL, and Supabase for
                   backend integration.
                 </p>
+                {/* Sunnymind Media Grid (2 Images) */}
+                <video
+                  muted
+                  controls
+                  className="h-auto w-full max-h-80 rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  poster="/polyformer-video-thumbnail.jpg"
+                >
+                  <source src="/sunnymind-demo.webm" type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2025
               </div>
             </div>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* Impact Experience (Polyformer) */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   Impact Experience
@@ -474,6 +507,26 @@ export default function App() {
                   strong hardware skills in 3D printing, crimping, wiring,
                   assembly methods, soldering, and embedded electronics.
                 </p>
+                {/* Polyformer Media Grid (1 Image + 1 Video) */}
+                <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
+                  <img
+                    src="/iex_polyformer.jpg"
+                    alt="Polyformer Prototype"
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  />
+                  <video
+                    muted
+                    controls
+                    className="h-auto w-full max-h-80 rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                    poster="/polyformer-video-thumbnail.jpg"
+                  >
+                    <source
+                      src="/iex-polyformer-electronics.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2025 - 2027
@@ -486,7 +539,8 @@ export default function App() {
               Course-Related Projects
             </h3>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* CG1111 */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   CG1111 - Engineering Principles and Practice I
@@ -507,13 +561,24 @@ export default function App() {
                   reliably classify floor colors and trigger state-machine
                   interrupts.
                 </p>
+                {/* CG1111 Media (Full width video) */}
+                <div className="mt-6">
+                  <video
+                    controls
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  >
+                    <source src="/CG1111 4.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2025
               </div>
             </div>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* CG2111 */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   CG2111 - Engineering Principles and Practice II
@@ -531,13 +596,29 @@ export default function App() {
                   robot using the command line, successfully retrieve targets
                   and mapping out the entire environment
                 </p>
+                {/* CG2111 Media (Map image + Robot Image) */}
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <img
+                    src="/CG2111 1.jpg"
+                    alt="PySlam Generated Map"
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  />
+                  <video
+                    controls
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  >
+                    <source src="/CG2111 3.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2025
               </div>
             </div>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* EE2026 */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   EE2026 - Digital Design
@@ -557,13 +638,22 @@ export default function App() {
                   custom handshake protocol to seamlessly integrate the input
                   streaming system with OLED display outputs.
                 </p>
+                {/* EE2026 Media */}
+                <div className="mt-6">
+                  <img
+                    src="/EE2026 8.jpg"
+                    alt="Basys 3 FPGA Calculator"
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  />
+                </div>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2025
               </div>
             </div>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* CG2271 */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   CG2271 - Real-Time Operating Systems
@@ -585,12 +675,21 @@ export default function App() {
                   and prioritized queues, ensuring flawless packet transmission
                   via a custom 0xAA sync-byte protocol.
                 </p>
+                {/* CG2271 Media */}
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <img
+                    src="/CG2271.jpg"
+                    alt="IoT Hardware Architecture"
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  />
+                </div>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2026
               </div>
             </div>
 
+            {/* CS2113 */}
             <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
@@ -610,6 +709,21 @@ export default function App() {
                   handles dynamic UI-assisted CLI prompts, and managing the Git
                   and GitOps for the team.
                 </p>
+                {/* CS2113 Media */}
+                <div className="mt-6">
+                  <video
+                    muted
+                    controls
+                    className="h-auto w-full max-h-80 rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                    poster="/polyformer-video-thumbnail.jpg"
+                  >
+                    <source
+                      src="/[CS2113-T09-4][Ledger67].mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2026
@@ -622,7 +736,8 @@ export default function App() {
               Research Essays
             </h3>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* NGT */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   NGT - Global Thinking
@@ -642,7 +757,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            {/* NTW */}
+            <div className="mb-14 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
                   NTW - Thinking and Writing
@@ -666,6 +782,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* GEX */}
             <div className="flex flex-col justify-between gap-4 md:flex-row md:pr-12">
               <div className="md:w-3/4">
                 <h4 className="mb-2 font-heading text-xl font-bold uppercase text-slate-900">
@@ -683,6 +800,28 @@ export default function App() {
                   coming future, primarily focusing on artificial intelligence,
                   predictive algorithms and their potential impact on society.
                 </p>
+                {/* GEX Travel/Project Media */}
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  <img
+                    src="/random-meeting-gex.jpg"
+                    alt="Company Visit at Tencent"
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  />
+                  <img
+                    src="/hengtong-gex.jpg"
+                    alt="GEX Group Photo"
+                    className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                  />
+                  <video
+                    muted
+                    controls
+                    className="h-auto w-full max-h-80 rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
+                    poster="/polyformer-video-thumbnail.jpg"
+                  >
+                    <source src="/self-driving.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
                 2025
