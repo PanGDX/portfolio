@@ -168,6 +168,34 @@ export default function App() {
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
             <div className="md:w-3/4">
               <h3 className="mb-1 font-heading text-2xl font-bold uppercase text-slate-900">
+                Coraline Co Ltd
+              </h3>
+              <p className="mb-2 text-lg italic text-teal-600">
+                Artificial Intelligence Engineering Intern
+              </p>
+              <ul className="list-inside list-disc space-y-1 text-base font-light text-slate-600">
+                Engineered an in-house HR chatbot using OpenWebUI, LiteLLM and
+                Langfuse for LLM routing and observability, integrating Hybrid
+                Retrieval Augmented Generation (RAG) and Model-Context-Protocol
+                (MCP) tool calling, employing AI harness and deterministic
+                systems to remove security risks. ◦ Ran 10+ rounds of red-team
+                testing with Promptfoo, cutting policy-violation rate by an
+                estimated 20%; applied prompt optimization to cut token use per
+                prompt by more than 60% and containerized the stack with Docker
+                Compose. ◦ Researched at least 3 distinct AI Governance
+                methodologies such as ISO42001 or NIST, aiding company clients
+                in crafting a comprehensive terms-of-services for their AI
+                Transformation
+              </ul>
+            </div>
+            <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
+              May 2026 - July 2026
+            </div>
+          </div>
+
+          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:pr-12">
+            <div className="md:w-3/4">
+              <h3 className="mb-1 font-heading text-2xl font-bold uppercase text-slate-900">
                 National University of Singapore, Makers' Lab
               </h3>
               <p className="mb-2 text-lg italic text-teal-600">Lab Assistant</p>
@@ -187,27 +215,6 @@ export default function App() {
                 microcontroller to relay modules to seamlessly actuate the
                 locker's electronic snap locks.
               </ul>
-              <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-                <img
-                  src="/printing-bambu.jpg"
-                  alt="Polyformer Prototype"
-                  className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
-                />
-                <img
-                  src="/3dprints.jpg"
-                  alt="Polyformer Prototype"
-                  className="h-auto w-full max-h-80 object-contain rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
-                />
-                <video
-                  muted
-                  controls
-                  className="h-auto w-full max-h-80 rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
-                  poster="/polyformer-video-thumbnail.jpg"
-                >
-                  <source src="/robotarm.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
             </div>
             <div className="mt-2 whitespace-nowrap font-medium text-teal-600 md:mt-0 md:text-right">
               Aug 2025 - Present
@@ -417,7 +424,8 @@ export default function App() {
                   "3D Printing",
                   "Soldering",
                   "Crimping",
-                  "AI API Agents",
+                  "LLM Ops (Langfuse, LiteLLM)",
+                  "AI Agent Development",
                   "Prompt Engineering",
                 ].map((skill) => (
                   <span
